@@ -1,0 +1,80 @@
+<div class="card bg-light">
+  <div class="card-header">{{ pageTitle }}</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filtered By:</div>
+      <div class="col-md-4"><input type="text" [(ngModel)]="listFilter" /></div>
+    </div>
+    <div class="row" *ngIf="listFilter">
+      <div class="col-md-6">
+        <h4>Filtered By: {{ listFilter }}</h4>
+      </div>
+    </div>
+    <div *ngIf="scale" class="portfolio-lightbox">
+      <div class="portfolio-lightbox__content">
+        <a class="close" (click)="change_scale('none')"></a>
+        <img class="portfolio-lightbox__image" [src]="image.url" alt="" />
+        <h3 class="portfolio__title">{{ image.name }}</h3>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table" *ngIf="Items && Items.length">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn btn-primary" (click)="toggleImage()">
+                {{ showImage ? "Hide" : "Show" }} Item
+              </button>
+            </th>
+            <th>Item</th>
+            <th>ID</th>
+            <th>Box</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <wb-loading-spinner [loading]="processing"></wb-loading-spinner>
+        <tbody>
+          <tr *ngFor="let item of filteredItems">
+            <td>
+              <img
+                class="thumnail"
+                *ngIf="showImage"
+                [src]="item.imageURL"
+                alt=""
+                (click)="change_scale(item)"
+              />
+            </td>
+            <td>
+              <a [routerLink]="['/items', item._id]"> {{ item.ItemName }}</a>
+            </td>
+            <td>{{ item.id }}</td>
+            <td>
+              <a
+                [routerLink]="['/items/box', item.BOX]"
+                [queryParams]="{ filteredBy: listFilter, showImage: showImage }"
+              >
+                {{ item.BOX }}
+              </a>
+            </td>
+            <td>
+              <a
+                class="btn btn-primary"
+                [routerLink]="['/items', item._id, 'Edit']"
+                [queryParams]="{ filteredBy: listFilter, showImage: showImage }"
+              >
+                Edit
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="1000"
+      (scrolled)="onScrollDown()"
+    ></div>
+    <div class="errorMessage" *ngIf="errorMesage">User is not Authorused</div>
+  </div>
+</div>

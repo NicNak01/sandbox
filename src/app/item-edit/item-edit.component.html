@@ -1,0 +1,141 @@
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <form
+      novalidate
+      autocomplete="off"
+      (ngSubmit)="saveItem()"
+      [formGroup]="itemForm"
+    >
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label" for="ItemNameId"
+          >Item Name</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="ItemNameId"
+            type="text"
+            placeholder="Item Name (required)"
+            formControlName="ItemName"
+            [ngClass]="{ 'is-invalid': displayMessage.ItemName }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.ItemName }}
+          </span>
+        </div>
+      </div>
+      <wb-loading-spinner [loading]="processing"></wb-loading-spinner>
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label" for="ItemId">IItem Id</label>
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="ItemId"
+            type="text"
+            placeholder="Item Id (required)"
+            formControlName="id"
+            [ngClass]="{ 'is-invalid': displayMessage.id }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.id }}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label" for="BOXId">Box</label>
+        <div class="col-md-8">
+          <input
+            class="form-control"
+            id="BOXId"
+            type="text"
+            placeholder="Item Id (required)"
+            formControlName="BOX"
+            [ngClass]="{ 'is-invalid': displayMessage.BOX }"
+          />
+          <span class="invalid-feedback">
+            {{ displayMessage.BOX }}
+          </span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label pt-0">Avalible</label>
+        <div class="col-md-8">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input
+                class="form-check-input"
+                type="radio"
+                value="Yes"
+                formControlName="Avalible"
+              />
+              Yes
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input
+                class="form-check-input"
+                type="radio"
+                value="No"
+                formControlName="Avalible"
+              />
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2 col-form-label" for="imageURLId"
+          >Image URL</label
+        >
+        <div class="col-md-8">
+          <input
+            class="form-control-file"
+            id="imageURLId"
+            type="file"
+            #AccUserImg
+            (change)="onFileChange($event)"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-1">
+          <button
+            class="btn btn-primary"
+            style="width:80px"
+            type="submit"
+            [disabled]="!itemForm.valid || !itemForm.dirty"
+            queryParamsHandling="preserve"
+          >
+            Save
+          </button>
+        </div>
+        <div class="col-md-1">
+          <button
+            class="btn btn-outline-secondary"
+            style="width:80px"
+            type="button"
+            [routerLink]="['/items']"
+            queryParamsHandling="preserve"
+          >
+            Cancel
+          </button>
+        </div>
+        <div class="col-md-1">
+          <button
+            class="btn btn-outline-warning"
+            style="width:80px"
+            type="button"
+            (click)="deleteItem()"
+            queryParamsHandling="preserve"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

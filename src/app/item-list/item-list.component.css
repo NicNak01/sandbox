@@ -1,0 +1,105 @@
+.thumnail {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 13px 6px rgba(0, 0, 0, 0.75);
+}
+.thumnail:hover {
+  width: 100px;
+  height: 100px;
+  border: solid;
+  border-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 13px 6px rgba(0, 0, 0, 0.75);
+}
+.card {
+  box-shadow: 0px 13px 26px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+}
+.errorMessage {
+  text-align: center;
+  font-size: 25px;
+  color: #565656;
+}
+.portfolio__title {
+  font-family: "Roboto Condensed", sans-srif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  text-align: center;
+}
+.portfolio-lightbox__image {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 30px 11px rgba(255, 255, 255, 0.11);
+}
+@keyframes slidein {
+  0% {
+    margin-top: 100%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+.portfolio-lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: slidein;
+  animation-duration: 0.9s;
+  padding: 2em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.89);
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.25);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+.portfolio-lightbox__content {
+  width: 75%;
+  padding: 1em;
+  position: relative;
+}
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  right: 10em;
+  top: -1em;
+  border: white 2px solid;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  margin-bottom: 6px;
+}
+.close::after {
+  content: "X";
+  color: white;
+}
+@media (min-width: 599px) {
+  .portfolio-lightbox__image {
+    display: flex;
+    width: 45%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 30px 11px rgba(255, 255, 255, 0.11);
+  }
+  .close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: absolute;
+    right: 10em;
+    top: -1em;
+    border: white 2px solid;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,66 @@
+.sidenav-container {
+  width: 100%;
+  opacity: 0.9;
+}
+ul {
+  display: none;
+}
+@media (min-width: 655px) {
+  .sidenav {
+    display: none;
+  }
+  mat-icon {
+    display: none;
+  }
+  mat-toolbar {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+  .sidenav-container {
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    width: 100%;
+    box-shadow: 0px 6px 16px 0px rgba(5, 5, 5, 0.69);
+  }
+  .navbar {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+  }
+  .brand {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .nav-pills {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inherit;
+  }
+  .link.active {
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 5px;
+    box-shadow: 0px 33px 20px -11px #4d4d4d;
+    color: black;
+  }
+  .link {
+    text-decoration: none;
+    display: inline-block;
+    color: #737373;
+    opacity: 0.8;
+    letter-spacing: -0.8px;
+    word-spacing: -0.8px;
+    margin: 15px 15px 28px 15px;
+    box-shadow: 0px 33px 20px -11px #4d4d4d;
+    transition: all ease-in-out 350ms;
+  }
+  .link:hover {
+    box-shadow: 0px 41px 20px -14px #4d4d4d;
+    transform: translate(0px, -10px);
+  }
+}

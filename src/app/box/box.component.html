@@ -1,0 +1,46 @@
+<div class="card bg-light" *ngIf="boxFilteredItems && boxFilteredItems.length">
+  <div class="card-header">
+    Box number {{ boxID }}
+    <div class="boxImage">
+      <img [src]="boximageURL" />
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table" *ngIf="boxFilteredItems && boxFilteredItems.length">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Box</th>
+          <th>Availible</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of boxFilteredItems">
+          <td>
+            <img [src]="item.imageURL" />
+          </td>
+          <td>
+            <a
+              [routerLink]="['/items', item._id]"
+              queryParamsHandling="preserve"
+            >
+              {{ item.ItemName }}</a
+            >
+          </td>
+          <td>{{ item.BOX }}</td>
+          <td>{{ item.Avalible }}</td>
+          <td><input type="checkbox" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <button
+      class="btn btn-outline-secondary"
+      style="width:80px"
+      (click)="onBack()"
+    >
+      <i class="fa fa-chevron-left"></i> Back
+    </button>
+  </div>
+</div>

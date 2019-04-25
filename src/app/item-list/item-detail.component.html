@@ -1,0 +1,58 @@
+<div class="card bg-light">
+  <div class="card-header">
+    {{ pageTitle + ": " + item.ItemName }}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">Name:</div>
+          <div class="col-md-6">{{ item.ItemName }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Code:</div>
+          <div class="col-md-6">{{ item.id }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">BOX:</div>
+          <div class="col-md-6">{{ item.BOX }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">Availability:</div>
+          <div class="col-md-6">{{ item.Avalible }}</div>
+        </div>
+      </div>
+
+      <div class="col-md-4" *ngIf="item.imageURL">
+        <img
+          class="center-block img-responsive"
+          [style.width.px]="200"
+          [style.margin.px]="2"
+          [src]="item.imageURL"
+          [title]="item.ItemName"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+        <button
+          class="btn btn-outline-secondary"
+          style="width:80px"
+          (click)="onBack()"
+        >
+          <i class="fa fa-chevron-left"></i> Back
+        </button>
+      </div>
+      <div class="col-md-1">
+        <button
+          class="btn btn-outline-primary"
+          style="width:80px"
+          [routerLink]="['/items', item._id, 'Edit']"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+</div>

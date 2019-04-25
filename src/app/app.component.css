@@ -1,0 +1,48 @@
+@media (min-width: 599px){
+
+.main{
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  margin: 45px 10% 0px 10%;
+}
+}
+@media (max-width: 599px){
+  .main{
+    text-align: -webkit-center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

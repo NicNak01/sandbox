@@ -1,0 +1,60 @@
+
+  <div class="card">
+      <div class="card-header">Log In</div>
+      <div class="card-body" [@err]="stateName">
+          <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+              <div class="form-group row">
+                  <label class="col-md-2 col-form-label"
+                  for="email">Email:</label>
+                  <div class="col-md-8">
+                    <input class="form-control"
+                           id="emailid"
+                           type="email"
+                           placeholder="name@example.com"
+                           formControlName="email"
+                           [ngClass]="{'is-invalid': (registerForm.get('email').touched || registerForm.get('email').dirty) && !registerForm.get('email').valid }"
+                           />
+                  </div>
+                  <wb-loading-spinner [loading]="processing"></wb-loading-spinner>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                    for="password">Password:</label>
+                    <div class="col-md-8">
+                      <input class="form-control"
+                             id="passwordid"
+                             type="password"
+                             placeholder="Password..."
+                             formControlName="password"
+                             [ngClass]="{'is-invalid': (registerForm.get('password').touched || registerForm.get('password').dirty) && !registerForm.get('password').valid }"
+                             />
+                    </div>
+                  </div>
+              <div class="form-group row">
+                  <div class="col-md-2">
+                    <button class="btn btn-primary"
+                            style='width:80px'
+                            type="submit"
+                            [disabled]="registerForm.invalid"
+                            >
+                      Log In
+                    </button>
+                  </div>
+              <div class="col-md-2">
+                    <button class="btn btn-outline-secondary"
+                            style='width:80px'
+                            type="button"
+                            (click)="cancel()"
+                            >
+                      Cancel
+                    </button>
+                  </div>
+              </div>
+              <div *ngIf="error"  style="color:red; text-align: center;">Authotication failed</div>
+            </form>
+      </div>
+  </div>
+<!-- <br>Dirty: {{ registerForm.dirty }}
+  <br>Touched: {{ registerForm.touched }}
+  <br>Valid: {{ registerForm.valid }}
+  <br>Value: {{ registerForm.value | json }} -->

@@ -1,0 +1,14 @@
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 13px 6px rgba(0, 0, 0, 0.75);
+}
+.boxImage {
+  display: flex;
+  justify-content: center;
+}
+.boxImage img {
+  width: 200px;
+  height: 200px;
+}

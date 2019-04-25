@@ -1,0 +1,97 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <mat-toolbar>Cuppoard</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/welcome']"
+        >Home</a
+      >
+      <a
+        mat-list-item
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/items']"
+        >Item List</a
+      >
+      <a
+        mat-list-item
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/items', 'none', 'Edit']"
+        >Add Item</a
+      >
+
+      <a
+        mat-list-item
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="['/register']"
+        >Log In
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="white">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <nav class="navbar">
+        <ul class="nav-pills">
+          <li>
+            <a
+              class="link"
+              routerLinkActive="active"
+              [routerLink]="['/welcome']"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/items']"
+              >Item List</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/items', 'none', 'Edit']"
+              >Add Item</a
+            >
+          </li>
+        </ul>
+        <ul class="nav-pills">
+          <!-- <li> <a class='link' routerLinkActive='active' [routerLinkActiveOptions]="{ exact: true }"
+                  [routerLink]="['/singup']">Registeration</a> </li> -->
+
+          <li>
+            <a
+              class="link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [routerLink]="['/register']"
+            >
+              Log In
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
