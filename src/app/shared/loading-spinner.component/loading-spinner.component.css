@@ -1,38 +1,20 @@
-/* Spinner */
 .spinner {
-  font-size:200%;
-  position:absolute;
-  /* top: 70%; */
+  font-size: 200%;
+  position: absolute;
+
   left: 50%;
-  z-index:10;
-  color: #0070FF;
+  z-index: 10;
+  color: #0070ff;
 }
 
 .fa-spinner {
-    animation: spin 1000ms infinite linear;
-    /* -webkit-animation: spin 1000ms infinite linear; */
-
+  animation: spin 1000ms infinite linear;
 }
 @keyframes spin {
-  from  {
-        transform: rotate(0deg);
-        /* -webkit-transform: rotate(0deg); */
-    }
-    to {
-      transform: rotate(359deg);
-      /* -webkit-transform: rotate(359deg); */
-
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
-/* @-webkit-keyframes spin {
-    from {
-      transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-
-    }
-    to {
-      transform: rotate(359deg);
-        -webkit-transform: rotate(359deg);
-
-    }
-} */

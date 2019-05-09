@@ -1,19 +1,13 @@
-// tslint:disable-next-line:import-spacing
-import { Component, OnChanges, Input  }  from '@angular/core';
-
+import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'pm-count',
-  templateUrl: './count.component.html',
-  styleUrls: ['./count.component.css']
+	selector: 'pm-count',
+	templateUrl: './count.component.html'
 })
 export class CountComponent implements OnChanges {
-  @Input() raiting: number;
+	@Input() raiting: number;
 
-
-  ngOnChanges(): void {
-    this.raiting ++ ;
-  }
-
+	ngOnChanges(): void {
+		this.raiting++;
+	}
 }

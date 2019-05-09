@@ -1,25 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemService } from '../item-list/item.service';
-
-
+import { ItemService } from '../core/data.service';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+	selector: 'app-welcome',
+	templateUrl: './welcome.component.html',
+	styleUrls: [ './welcome.component.css' ]
 })
 export class WelcomeComponent implements OnInit {
+	constructor(private itemService: ItemService) {}
 
-  constructor( private itemService: ItemService) {}
+	Items: string;
 
-  Items: string;
-
-  ngOnInit() {
-    this.itemService.getItems().subscribe(
-      Items => {
-      this.Items = JSON.stringify(Items);
-  });
-}
-
-
+	ngOnInit() {
+		this.itemService.getItems().subscribe((Items) => {
+			this.Items = JSON.stringify(Items);
+		});
+	}
 }

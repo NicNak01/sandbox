@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot  } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { IItem } from './item';
 import { Observable } from 'rxjs';
-import { ItemService } from './item.service';
+import { ItemService } from '../core/data.service';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
-
 export class ItemResolver implements Resolve<IItem> {
-  constructor(private itemService: ItemService) {}
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IItem> {
-    const id = route .paramMap.get('id');
-    return this.itemService.getItem(id);
-  }
+	constructor(private itemService: ItemService) {}
+	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IItem> {
+		const id = route.paramMap.get('id');
+		return this.itemService.getItem(id);
+	}
 }
